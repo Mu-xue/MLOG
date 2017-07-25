@@ -1,0 +1,12 @@
+header {
+    height: 50px;
+}
+
+.page {
+    background-color: transparent;
+}
+
+iframe {
+    height: 600px;
+    width: 100%;
+}
