@@ -1,0 +1,56 @@
+<%- include nav %>
+
+<!--                                        这是登录页                                     -->
+<!--                                        这是登录页                                     -->
+<!--                                        这是登录页                                     -->
+
+<%- include header %>
+
+
+<% if(success) { %>
+<div style="text-align: center;"><%= success %></div>
+<% } %>
+<% if (error) { %>
+<div style="text-align: center;"><%= error %></div>
+<% } %>
+
+
+
+<form class="form-horizontal login-form" method="post">
+    <fieldset>
+      <div id="legend" class="">
+        <legend class="">登录</legend>
+      </div>
+    <div class="control-group">
+
+          <!-- Text input-->
+          <label class="control-label" for="input01">昵称</label>
+          <div class="controls">
+            <input type="text" name="name" placeholder="name" class="input-xlarge">
+            <p class="help-block">Enter your name</p>
+          </div>
+        </div>
+
+    <div class="control-group">
+
+          <!-- Text input-->
+          <label class="control-label" for="input01">密码</label>
+          <div class="controls">
+            <input type="password" name="password" placeholder="password" class="input-xlarge">
+            <p class="help-block">Forget it?Sorry, please register another</p>
+          </div>
+        </div>
+
+    <div class="control-group">
+          <!-- Button -->
+          <div class="controls">
+            <input class="btn btn-success" type="submit" value="登录">
+          </div>
+        </div>
+
+    </fieldset>
+</form>
+
+
+
+<%- include footer %>

@@ -1,0 +1,64 @@
+<%- include nav %>
+
+<!--                                        这是注册页                                     -->
+<!--                                        这是注册页                                     -->
+<!--                                        这是注册页                                     -->
+
+<%- include header %>
+
+<% if(success) { %>
+<div style="text-align: center;"><%= success %></div>
+<% } %>
+<% if(error) { %>
+<div style="text-align: center;"><%= error %></div>
+<% } %>
+
+<form class="form-horizontal reg-form" method="POST">
+    <fieldset>
+      <div id="legend" class="">
+        <legend class="">注册</legend>
+      </div>
+    <div class="control-group">
+
+          <!-- Text input-->
+          <label class="control-label" for="input01">昵称</label>
+          <div class="controls">
+            <input type="text" name="name" placeholder="name" class="input-xlarge">
+            <p class="help-block">English and Chinese are both suported</p>
+          </div>
+        </div>
+
+    <div class="control-group">
+
+          <!-- Text input-->
+          <label class="control-label" for="input01">密码</label>
+          <div class="controls">
+            <input type="password" name="password" placeholder="password" class="input-xlarge">
+            <p class="help-block">Enter your password</p>
+          </div>
+        </div>
+
+    <div class="control-group">
+
+          <!-- Text input-->
+          <label class="control-label" for="input01">确认密码</label>
+          <div class="controls">
+            <input type="password" name="password-repeat" placeholder="password" class="input-xlarge">
+            <p class="help-block">Confirm your password</p>
+          </div>
+        </div>
+
+    <div class="control-group">
+          <!-- Button -->
+          <div class="controls">
+            <input class="btn btn-success" type="submit" value="注册" />
+          </div>
+        </div>
+
+    </fieldset>
+</form>
+
+
+
+
+<%- include footer %>

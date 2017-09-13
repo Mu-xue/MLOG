@@ -1,0 +1,55 @@
+<%- include nav %>
+
+<!--                                        这是发表页                                     -->
+<!--                                        这是发表页                                     -->
+<!--                                        这是发表页                                     -->
+
+<%- include header %>
+
+<% if(success) { %>
+<div style="text-align: center;"><%= success %></div>
+<% } %>
+<% if(error) { %>
+<div style="text-align: center;"><%= error %></div>
+<% } %>
+
+<form class="form-horizontal post-form" method="POST">
+    <fieldset>
+      <div id="legend" class="">
+        <legend class="">发表</legend>
+      </div>
+    <div class="control-group">
+
+          <!-- Text input-->
+          <label class="control-label" for="input01">标题</label>
+          <div class="controls">
+            <input type="text" name="title" placeholder="title" class="input-xlarge">
+            <p class="help-block">Your title</p>
+          </div>
+        </div>
+
+    <div class="control-group">
+
+          <!-- Text input-->
+          <label class="control-label" for="input01">时间</label>
+          <div class="controls">
+            <input type="time" name="time" placeholder="time" class="input-xlarge">
+            <p class="help-block">Current time</p>
+          </div>
+        </div>
+
+
+    <div class="control-group">
+          <!-- Button -->
+          <div class="controls">
+            <input class="btn btn-success" type="submit" value="提交" />
+          </div>
+        </div>
+
+    </fieldset>
+</form>
+
+
+
+
+<%- include footer %>
