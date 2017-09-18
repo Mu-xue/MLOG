@@ -1,0 +1,14 @@
+<%- include nav %>
+
+<!--                                        这是文章页                                     -->
+<!--                                        这是文章页                                     -->
+<!--                                        这是文章页                                     -->
+
+<%- include header %>
+
+<% posts.forEach(function (post, index){ %>
+<a href="/article/<%= index %>"><%= post.title %></a>
+
+<% }) %>
+
+<%- include footer %>

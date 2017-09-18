@@ -1,8 +1,9 @@
 var mongodb = require('./db');
 
-function Post(post) {
+function Post(post, file) {
     this.title = post.title;
     this.time = post.time;
+    this.file = file;
 };
 
 module.exports = Post;
@@ -11,7 +12,8 @@ module.exports = Post;
 Post.prototype.save = function (callback) {
     var post = {
         title: this.title,
-        time: this.time
+        time: this.time,
+        file: this.file
     };
 
     // 打开数据库

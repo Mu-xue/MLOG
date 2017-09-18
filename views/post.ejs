@@ -6,14 +6,13 @@
 
 <%- include header %>
 
-<% if(success) { %>
-<div style="text-align: center;"><%= success %></div>
-<% } %>
 <% if(error) { %>
 <div style="text-align: center;"><%= error %></div>
+<% } else { %>
+<div style="text-align: center;"><%= success %></div>
 <% } %>
 
-<form class="form-horizontal post-form" method="POST">
+<form class="form-horizontal post-form" method="POST" enctype="multipart/form-data">
     <fieldset>
       <div id="legend" class="">
         <legend class="">发表</legend>
@@ -26,25 +25,34 @@
             <input type="text" name="title" placeholder="title" class="input-xlarge">
             <p class="help-block">Your title</p>
           </div>
-        </div>
+    </div>
 
     <div class="control-group">
 
           <!-- Text input-->
           <label class="control-label" for="input01">时间</label>
           <div class="controls">
-            <input type="time" name="time" placeholder="time" class="input-xlarge">
+            <input type="date" name="time" placeholder="time" class="input-xlarge">
             <p class="help-block">Current time</p>
           </div>
-        </div>
+    </div>
 
+    <div class="control-group">
+
+          <!-- Text input-->
+          <label class="control-label" for="input01">网页</label>
+          <div class="controls">
+            <input type="file" name="web" placeholder="web" class="input-xlarge">
+            <p class="help-block">Your html file</p>
+          </div>
+    </div>
 
     <div class="control-group">
           <!-- Button -->
           <div class="controls">
             <input class="btn btn-success" type="submit" value="提交" />
           </div>
-        </div>
+    </div>
 
     </fieldset>
 </form>

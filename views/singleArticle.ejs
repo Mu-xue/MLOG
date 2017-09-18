@@ -1,0 +1,13 @@
+<%- include nav %>
+
+<!--                                        这是单独文章页                                     -->
+<!--                                        这是单独文章页                                     -->
+<!--                                        这是单独文章页                                     -->
+
+<%- include header %>
+
+<p><%= posts[index].title %></p>
+<iframe src="<%= posts[index].file.path.substr(6) %>" frameborder="0" style="height: 600px;width: 100%;"></iframe>
+
+<%- include footer %>
+

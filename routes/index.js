@@ -3,7 +3,29 @@ User = require('../models/user.js');
 Post = require('../models/post.js');
 var express = require('express');
 var router = express.Router();
+var multer = require('multer');
 
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './public/articles/')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname)
+  }
+})
+
+var upload = multer({ 
+    storage: storage,
+    fileFilter: function (req, file, cb) {
+        if (file.mimetype!='text/html'){
+            req.flash('error', '文件类型不对');
+            cb(null, false);
+        }
+        else {
+            cb(null, true);
+        }
+    }
+});
 
 
 /* GET home page. */
@@ -116,8 +138,8 @@ module.exports = function (app) {
 
     app.post('/post', checkLogin);
     app.post('/post', checkHost);
-    app.post('/post', function (req, res) {
-        var post = new Post(req.body.title, req.body.time);
+    app.post('/post', upload.single('web'), function (req, res) {
+        var post = new Post(req.body,req.file);
         post.save(function (err) {
             if(err) {
                 req.flash ('error', err);
@@ -126,7 +148,37 @@ module.exports = function (app) {
             req.flash('success','发布成功！');
             res.redirect('/post');
         })
-    })
+    });
+
+    app.get('/article', function (req, res){
+        Post.get(null, function (err, posts){
+            if (err){
+                posts = [];
+            }
+             res.render('article', {
+                title: '文章',
+                description: '',
+                user: req.session.user,
+                posts: posts
+            });
+        });
+    });
+
+    app.get('/article/:index', function (req,res) {
+        console.log(req.params.index);
+        Post.get(null, function (err, posts){
+            if (err){
+                posts = [];
+            }
+             res.render('singleArticle', {
+                title: '',
+                description: '',
+                user: req.session.user,
+                posts: posts,
+                index: req.params.index
+            });
+        });
+    });
 
     function checkLogin(req, res, next) {
         if (!req.session.user) {
